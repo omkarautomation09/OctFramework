@@ -39,13 +39,11 @@ public void setup(String browser) throws Exception{
 
 	        	else if (browser.equalsIgnoreCase("edge")) {
 
-	        	    System.setProperty(
-	        	        "webdriver.edge.driver",
-	        	        System.getProperty("user.dir") + "/drivers/msedgedriver.exe"
-	        	    );
-
-	        	    driver.set(new EdgeDriver());
-
+	        		System.setProperty(
+	        			    "webdriver.edge.driver",
+	        			    System.getProperty("user.dir") + "/drivers/msedgedriver.exe"
+	        			);
+	        			driver.set(new EdgeDriver());
 	        } else {
 	            throw new IllegalArgumentException("Browser not supported: " + browser);
 	        }
