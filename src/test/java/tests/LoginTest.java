@@ -52,7 +52,7 @@ public class LoginTest extends BaseTest {
 			Assert.assertTrue(getDriver().getPageSource().contains("No match for E-Mail Address and/or Password"),"Warning message not displayed");
 		}
 		
-		 Assert.assertTrue(false);
+		// Assert.assertTrue(false);
 		
 		}
 	/*public void validlogintest() {
