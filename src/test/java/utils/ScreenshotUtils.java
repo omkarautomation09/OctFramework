@@ -27,6 +27,8 @@ public class ScreenshotUtils {
                 + System.currentTimeMillis()
                 + ".png"
         );
+        
+        dest.getParentFile().mkdirs();
 
         // Copy screenshot
         Files.copy(
