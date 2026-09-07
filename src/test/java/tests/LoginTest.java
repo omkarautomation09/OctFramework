@@ -43,6 +43,7 @@ public class LoginTest extends BaseTest {
 			 Assert.assertTrue(
 					 getDriver().getCurrentUrl().contains("account/account"),
 	                    "Valid login failed");
+			 Assert.assertTrue(false);
 		}
 		
 		else {
