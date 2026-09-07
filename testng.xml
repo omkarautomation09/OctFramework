@@ -19,7 +19,9 @@
 
         <classes>
            
-            <class name="tests.WishlistTest"/>
+           
+            <class name ="teste.LoginTest"/>
+            <class name ="CheckoutTest"/>
           
         </classes>
 
@@ -32,6 +34,7 @@
 
         <classes>
             <class name="tests.LoginTest"/>
+             <class name="tests.WishlistTest"/>
            
         </classes>
 
