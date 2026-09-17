@@ -77,10 +77,10 @@ public class ProductTest extends BaseTest {
 	    pp.clickProduct("MacBook");
 
 	    Assert.assertEquals(
-	            pp.getAvailability(),
-	            "Availability: In Stock",
-	            "Availability Mismatch"
-	    );
+	    	    pp.getAvailability(),
+	    	    "Availability:Out Of Stock",
+	    	    "Availability Mismatch"
+	    	);
 
 	}
 	

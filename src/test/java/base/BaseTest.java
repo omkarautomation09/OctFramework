@@ -4,16 +4,20 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.ConfigReader;
 import utils.ScreenshotUtils;
+
+
 
 public class BaseTest {
 	private ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -25,17 +29,25 @@ public class BaseTest {
 	@BeforeMethod
 	
 	 @Parameters("browser")
+	//@Optional("chrome")
 	
-public void setup(String browser) throws Exception{
+	
+public void setup( String browser) throws Exception{
 		
 		System.out.println("BROWSER RECEIVED = " + browser);
 		
 		 if (browser.equalsIgnoreCase("chrome")) {
 
 	            WebDriverManager.chromedriver().setup();
-	            driver.set(new ChromeDriver());
+	            
+	            ChromeOptions options = new ChromeOptions();
+	            options.addArguments("--headless=new");
+	            options.addArguments("--window-size=1920,1080");
+	            options.addArguments("--disable-gpu");
+	            driver.set(new ChromeDriver(options));
 
 
+	           
 	        } 
 
 	        	else if (browser.equalsIgnoreCase("edge")) {
@@ -46,11 +58,11 @@ public void setup(String browser) throws Exception{
 	        			);
 	        		 EdgeOptions options = new EdgeOptions();
 
-	        		    if (System.getenv("JENKINS_HOME") != null) {
+	        		    
 	        		        options.addArguments("--headless=new");
 	        		        options.addArguments("--window-size=1920,1080");
 	        		        options.addArguments("--disable-gpu");
-	        		    }
+	        		    
 
 	        		    driver.set(new EdgeDriver(options));
 	        		}

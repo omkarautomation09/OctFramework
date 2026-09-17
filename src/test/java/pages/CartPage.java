@@ -2,6 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import java.time.Duration;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CartPage {
 
@@ -13,7 +16,7 @@ WebDriver driver;
 		
 	}	
 	
-	By shoppingCartLink = By.linkText("shopping cart");
+	By shoppingCartLink = By.xpath("//a[contains(@href,'route=checkout/cart')]");
 	
 	By cartProductName = By.linkText("MacBook");
 	
@@ -30,11 +33,12 @@ WebDriver driver;
 	By emptyCartMessage = By.xpath("//div[@id='content']/p");
 	
 	public void clickShoppingCart() {
-		
-		driver.findElement(shoppingCartLink).click();
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    wait.until(ExpectedConditions.elementToBeClickable(shoppingCartLink)).click();
 	}
 	
-
 	public String getCartProductName() {
 
         return driver.findElement(cartProductName).getText();

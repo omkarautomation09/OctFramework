@@ -13,7 +13,7 @@ public class HomePage {
         this.driver = driver;	
 
 }
-    By featuredAddToCart = By.xpath("(//span[text()='Add to Cart'])[1]");
+    By featuredAddToCart = By.xpath("(//span[text()='Add to Cart'])[1]/parent::button");
     By miniCartButton = By.id("cart");
     By miniCartProductName = By.xpath("//table[@class='table table-striped']//tr/td[2]");
     By miniCartProductPrice = By.xpath("//table[@class='table table-striped']//tr/td[4]");

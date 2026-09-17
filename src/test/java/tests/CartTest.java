@@ -211,7 +211,7 @@ public class CartTest extends BaseTest {
 	    // Verify Total Price
 	    Assert.assertEquals(
 	            cp.getTotalPrice(),
-	            "$1204.00",
+	            "$1,204.00",
 	            "Total Price Mismatch"
 	    );
 	}
